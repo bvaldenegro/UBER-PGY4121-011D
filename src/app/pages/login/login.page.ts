@@ -21,7 +21,11 @@ export class LoginPage implements OnInit {
   //Creamos el metodo login que pasa la variable usuario a la vista inicio por la url
   login(){
 
-    this.router.navigateByUrl("/inicio/" + this.usuario)
+    if (this.usuario != "" && this.password != "") {
+      this.router.navigateByUrl("/inicio/" + this.usuario)
+    }else{
+      alert("Uno o más campos vacios!")
+    }
     
   }
 
