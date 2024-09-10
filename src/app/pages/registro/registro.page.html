@@ -1,0 +1,26 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-icon  [routerLink]="['/login']" name="arrow-back-outline"></ion-icon>
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+<ion-list>
+
+  <ion-item>
+    <ion-input [(ngModel)]="usuario" label="Usuario: " placeholder="Ingrese usuario"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="password1" label="Contraseña: " type="password" placeholder="Ingrese contraseña"></ion-input>
+  </ion-item>
+
+  <ion-item>
+    <ion-input [(ngModel)]="password2" label="Repita contraseña: " type="password" placeholder="repita la contraseña"></ion-input>
+  </ion-item>
+
+  <ion-button (click)="signup()"> Sing Up </ion-button>
+
+</ion-list>
+</ion-content>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-perfil',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilPage implements OnInit {
 
-  constructor() { }
+  usuario:string = "";
+
+  constructor(private activatedRoute:ActivatedRoute) { }
 
   ngOnInit() {
+    
+    this.usuario = this.activatedRoute.snapshot.params["usuario"];
+
   }
 
 }

@@ -21,7 +21,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'perfil',
+    path: 'perfil/:usuario',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
   },
   {
@@ -32,6 +32,11 @@ const routes: Routes = [
     path: 'vehiculo',
     loadChildren: () => import('./pages/vehiculo/vehiculo.module').then( m => m.VehiculoPageModule)
   },
+  {
+    path: 'registro',
+    loadChildren: () => import('./pages/registro/registro.module').then( m => m.RegistroPageModule)
+  },
+
 ];
 
 @NgModule({
