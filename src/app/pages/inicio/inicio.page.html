@@ -28,5 +28,8 @@
       <ion-title>Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding"> Tap the button in the toolbar to open the menu. </ion-content>
+  <ion-content> 
+    <h1 style="text-align: center;">Bienvenido {{usuario}}</h1>
+    <ion-button (click)="agregarViaje()"> Agregar Viaje</ion-button>
+  </ion-content>
 </div>

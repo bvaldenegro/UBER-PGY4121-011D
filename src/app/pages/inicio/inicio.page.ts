@@ -33,4 +33,8 @@ export class InicioPage implements OnInit {
     this.router.navigateByUrl("/perfil/" + this.usuario);
   }
 
+  agregarViaje(){
+    this.router.navigateByUrl("/viaje");
+  }
+
 }
