@@ -14,6 +14,8 @@ export class InicioPage implements OnInit {
   //Agregamos el parametro activateRoute en el constructor
   constructor(private activateRoute: ActivatedRoute, private router:Router) { }
 
+  
+
   ngOnInit() {
     //Le otorgamos un valor a usuario a través de la captura del dato por el metodo activateRoute
     this.usuario = this.activateRoute.snapshot.params["usuario"];
@@ -39,6 +41,13 @@ export class InicioPage implements OnInit {
 
   agregarVehiculo(){
     this.router.navigateByUrl("/vehiculo");
+  }
+
+  handleRefresh(event: any) {
+    setTimeout(() => {
+      // Aquí puedes añadir llamadas para cargar datos u otras acciones necesarias
+      event.target.complete(); // Completa el refresco para detener el spinner
+    }, 2000);
   }
 
 }

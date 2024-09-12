@@ -34,6 +34,9 @@
   </ion-header>
 
   <ion-content>
+    <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+      <ion-refresher-content></ion-refresher-content>
+    </ion-refresher>
     <div class="inicio">
       <h1 id="bienvenido">Bienvenido {{usuario}}</h1>
       <ion-list>
