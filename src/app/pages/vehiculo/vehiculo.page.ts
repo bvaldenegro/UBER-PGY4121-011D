@@ -28,6 +28,8 @@ export class VehiculoPage implements OnInit {
       this.vehiculos.push({ ...this.vehiculo });
       // Limpiamos el formulario
       this.limpiarFormulario();
+    }else{
+      alert("Uno o más campos vacios")
     }
   }
 

@@ -32,6 +32,8 @@ export class ViajePage implements OnInit {
       this.viajes.push({ ...this.viaje });
       // Limpiar el formulario
       this.limpiarFormulario();
+    }else{
+      alert("Uno o más campos vacios")
     }
   }
 
