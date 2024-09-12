@@ -1,13 +1,65 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vehiculo</ion-title>
+    <ion-title>vehículo</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">vehiculo</ion-title>
+      <ion-title size="large">Agregar Vehiculo</ion-title>
+      <ion-title size="large">Listar Vehiculos</ion-title>
+
     </ion-toolbar>
   </ion-header>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col>
+        <form (ngSubmit)="agregarVehiculo()">
+          <ion-item>
+            <ion-label position="floating">Marca</ion-label>
+            <ion-input [(ngModel)]="vehiculo.marca" name="marca" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Modelo</ion-label>
+            <ion-input [(ngModel)]="vehiculo.modelo" name="modelo" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Año</ion-label>
+            <ion-input [(ngModel)]="vehiculo.ano" name="ano" required></ion-input>
+          </ion-item>
+
+          <ion-item>
+            <ion-label position="floating">Patente</ion-label>
+            <ion-input [(ngModel)]="vehiculo.patente" name="patente" required></ion-input>
+          </ion-item>
+
+          <ion-button expand="full" type="submit">Agregar Vehículo</ion-button>
+        </form>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col>
+        <!-- Lista de vehículos agregados -->
+        <ion-list>
+          <ion-list-header>
+            <ion-label>Lista de Vehículos</ion-label>
+          </ion-list-header>
+
+          <!-- Recorremos el array de vehículos para mostrar cada uno -->
+          <ion-item *ngFor="let vehiculo of vehiculos">
+            <ion-label>
+              <h2>{{ vehiculo.marca }} - {{ vehiculo.modelo }}</h2>
+              <p>Año: {{ vehiculo.ano }} - Patente: {{ vehiculo.patente }}</p>
+            </ion-label>
+          </ion-item>
+        </ion-list>
+      </ion-col>
+    </ion-row>
+
+  </ion-grid>
 </ion-content>
