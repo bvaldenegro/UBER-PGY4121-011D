@@ -3,15 +3,15 @@
 
   <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-icon  (click)="return()" name="arrow-back-outline"></ion-icon>
-      <ion-title>Perfil</ion-title>
+      <ion-icon  (click)="return()" name="arrow-back-outline" class="back-button"></ion-icon>
+      <ion-title id="title">Perfil</ion-title>
     </ion-toolbar>
   </ion-header>
-  
-  <ion-content [fullscreen]="true">
-    <h1><ion-icon name="person-outline"></ion-icon></h1>
-    <h1>{{usuario}}</h1>
-  </ion-content>
-  
+    <div class="ion-container">
+      <ion-content [fullscreen]="true">
+        <h1><ion-icon name="person-outline" id="profile"></ion-icon></h1>
+        <h1 id="user">{{usuario}}</h1>
+      </ion-content>
+    </div>
   </div>
   

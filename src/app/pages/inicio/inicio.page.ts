@@ -37,4 +37,8 @@ export class InicioPage implements OnInit {
     this.router.navigateByUrl("/viaje");
   }
 
+  agregarVehiculo(){
+    this.router.navigateByUrl("/vehiculo");
+  }
+
 }

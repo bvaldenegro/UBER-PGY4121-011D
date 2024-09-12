@@ -1,17 +1,16 @@
+<div class="fade-in"> <!--ANIMACION DE FADE IN INICIO-->
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>vehículo</ion-title>
+    <ion-title>Vehiculos</ion-title>
   </ion-toolbar>
 </ion-header>
-
-<div class="fade-in"> <!--ANIMACION DE FADE IN INICIO-->
 
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">Agregar Vehiculo</ion-title>
-      <ion-title size="large">Listar Vehiculos</ion-title>
 
     </ion-toolbar>
   </ion-header>
@@ -40,7 +39,7 @@
             <ion-input [(ngModel)]="vehiculo.patente" name="patente" required></ion-input>
           </ion-item>
 
-          <ion-button expand="full" type="submit">Agregar Vehículo</ion-button>
+          <ion-button type="submit">Agregar Vehículo</ion-button>
         </form>
       </ion-col>
     </ion-row>
@@ -50,7 +49,7 @@
         <!-- Lista de vehículos agregados -->
         <ion-list>
           <ion-list-header>
-            <ion-label>Lista de Vehículos</ion-label>
+            <ion-title size="large">Listar Vehiculos</ion-title>
           </ion-list-header>
 
           <!-- Recorremos el array de vehículos para mostrar cada uno -->
@@ -65,8 +64,5 @@
     </ion-row>
 
   </ion-grid>
-
-</div> <!--ANIMACION DE FADE IN FIN-->
-
-
 </ion-content>
+</div>
