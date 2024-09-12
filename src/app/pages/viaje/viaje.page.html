@@ -1,70 +1,77 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>Agregar / Listar Viajes</ion-title>
-  </ion-toolbar>
-</ion-header>
+<div class="fade-in"> <!--ANIMACION DE FADE IN INICIO-->
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
+
+  <ion-header [translucent]="true">
     <ion-toolbar>
-      <ion-title size="large">viaje</ion-title>
+      <ion-title>Agregar / Listar Viajes</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <ion-grid>
-    <ion-row>
-      <ion-col>
-        <!-- Formulario para agregar un nuevo viaje -->
-        <form (ngSubmit)="agregarViaje()">
-          <ion-item>
-            <ion-label position="floating">Conductor</ion-label>
-            <ion-input [(ngModel)]="viaje.conductor" name="conductor" required></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label position="floating">Pasajero</ion-label>
-            <ion-input [(ngModel)]="viaje.pasajero" name="pasajero" required></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label position="floating">Origen</ion-label>
-            <ion-input [(ngModel)]="viaje.origen" name="origen" required></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label position="floating">Destino</ion-label>
-            <ion-input [(ngModel)]="viaje.destino" name="destino" required></ion-input>
-          </ion-item>
-
-          <ion-item>
-            <ion-label position="floating">Fecha y hora</ion-label>
-            <ion-datetime [(ngModel)]="viaje.fechaHora" name="fechaHora" required></ion-datetime>
-          </ion-item>
-
-          <ion-button expand="full" type="submit">Agregar Viaje</ion-button>
-        </form>
-      </ion-col>
-    </ion-row>
-
-    <ion-row>
-      <ion-col>
-        <!-- Lista de viajes -->
-        <ion-list>
-          <ion-list-header>
-            <ion-label>Lista de Viajes</ion-label>
-          </ion-list-header>
-
-          <!-- Recorremos el array de viajes para mostrar cada uno -->
-          <ion-item *ngFor="let viaje of viajes">
-            <ion-label>
-              <h2>Conductor: {{ viaje.conductor }}</h2>
-              <p>Pasajero: {{ viaje.pasajero }}</p>
-              <p>Origen: {{ viaje.origen }} - Destino: {{ viaje.destino }}</p>
-              <p>Fecha y hora: {{ viaje.fechaHora }}</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-</ion-content>
+  
+  <ion-content [fullscreen]="true">
+    <ion-header collapse="condense">
+      <ion-toolbar>
+        <ion-title size="large">viaje</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <!-- Formulario para agregar un nuevo viaje -->
+          <form (ngSubmit)="agregarViaje()">
+            <ion-item>
+              <ion-label position="floating">Conductor</ion-label>
+              <ion-input [(ngModel)]="viaje.conductor" name="conductor" required></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Pasajero</ion-label>
+              <ion-input [(ngModel)]="viaje.pasajero" name="pasajero" required></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Origen</ion-label>
+              <ion-input [(ngModel)]="viaje.origen" name="origen" required></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Destino</ion-label>
+              <ion-input [(ngModel)]="viaje.destino" name="destino" required></ion-input>
+            </ion-item>
+  
+            <ion-item>
+              <ion-label position="floating">Fecha y hora</ion-label>
+              <ion-datetime [(ngModel)]="viaje.fechaHora" name="fechaHora" required></ion-datetime>
+            </ion-item>
+  
+            <ion-button expand="full" type="submit">Agregar Viaje</ion-button>
+          </form>
+        </ion-col>
+      </ion-row>
+  
+      <ion-row>
+        <ion-col>
+          <!-- Lista de viajes -->
+          <ion-list>
+            <ion-list-header>
+              <ion-label>Lista de Viajes</ion-label>
+            </ion-list-header>
+  
+            <!-- Recorremos el array de viajes para mostrar cada uno -->
+            <ion-item *ngFor="let viaje of viajes">
+              <ion-label>
+                <h2>Conductor: {{ viaje.conductor }}</h2>
+                <p>Pasajero: {{ viaje.pasajero }}</p>
+                <p>Origen: {{ viaje.origen }} - Destino: {{ viaje.destino }}</p>
+                <p>Fecha y hora: {{ viaje.fechaHora }}</p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-content>
+  
+  
+  </div> <!--ANIMACION DE FADE IN FIN-->
+  
