@@ -18,6 +18,7 @@ export class HelperService {
         buttons:['Aceptar']
       }
     )
+    await alert.present();
     return alert;
   }
 
