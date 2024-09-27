@@ -10,7 +10,15 @@ export class HelperService {
 
 
   async showAlert(msg:string, title:string){
-
+    var alert = await this.alertService.create(
+      {
+        cssClass:"",
+        message:msg,
+        header:title,
+        buttons:['Aceptar']
+      }
+    )
+    return alert;
   }
 
 
