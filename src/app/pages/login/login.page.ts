@@ -29,8 +29,13 @@ export class LoginPage implements OnInit {
     } */
     
     this.firebase.login(this.usuario, this.password);
+    this.router.navigateByUrl("/inicio/" + this.usuario);
 
 
+  }
+
+  resetPw(){
+    this.router.navigateByUrl("reset-password");
   }
 
 }

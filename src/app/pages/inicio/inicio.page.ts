@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { FirebaseService } from 'src/app/services/firebase.service';
 
 @Component({
   selector: 'app-inicio',
@@ -12,7 +13,7 @@ export class InicioPage implements OnInit {
   usuario:string = "";
 
   //Agregamos el parametro activateRoute en el constructor
-  constructor(private activateRoute: ActivatedRoute, private router:Router) { }
+  constructor(private activateRoute: ActivatedRoute, private router:Router, private firebase:FirebaseService) { }
 
   
 
@@ -25,9 +26,9 @@ export class InicioPage implements OnInit {
 
   logout(){
     
+    this.firebase.logOut();
     this.usuario = "";
     this.router.navigateByUrl('/login')
-    console.log("PARAMETRO ------- " + this.usuario);
 
   }
 

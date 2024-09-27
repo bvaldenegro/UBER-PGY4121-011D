@@ -15,4 +15,23 @@ export class FirebaseService {
 
   }
 
+  //metodo para registrar
+  async registro(email:string, contrasena:string){
+
+    const request = await this.fire.createUserWithEmailAndPassword(email, contrasena);
+
+  }
+
+  async resetPassword(email:string){
+
+    const request = await this.fire.sendPasswordResetEmail(email);
+
+  }
+
+  async logOut(){
+
+    await this.fire.signOut();
+
+  }
+
 }
