@@ -10,15 +10,27 @@ export class FirebaseService {
   
   async login(email:string, contrasena:string){
 
-    const request = await this.fire.signInWithEmailAndPassword(email, contrasena);
-    return request;
+    /* const request = await this.fire.signInWithEmailAndPassword(email, contrasena);
+    return request; */
+
+    try {
+      return await this.fire.signInWithEmailAndPassword(email, contrasena);
+    } catch (error: any) {
+      throw error;
+    }
 
   }
 
   //metodo para registrar
   async registro(email:string, contrasena:string){
 
-    const request = await this.fire.createUserWithEmailAndPassword(email, contrasena);
+    /* const request = await this.fire.createUserWithEmailAndPassword(email, contrasena); */
+
+    try {
+      return await this.fire.createUserWithEmailAndPassword(email, contrasena);
+    } catch (error: any) {
+      throw error;
+    }
 
   }
 

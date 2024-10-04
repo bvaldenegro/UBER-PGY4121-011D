@@ -31,10 +31,33 @@ export class LoginPage implements OnInit {
       alert("Uno o más campos vacios!")
     } */
     //Para usar el helper
-    if (this.usuario = ""){
+    /* if (this.usuario = ""){
       this.helper.showAlert("Ingrese el correo", "Error");
+    } */
+
+      //Cada que se llama a un loader es necesario retirarlo
+      const loader = await this.helper.showLoader("Cargando...");
+    try {
+      await this.firebase.login(this.usuario, this.password);
+      loader.dismiss();
+      
+    } catch (error:any) {
+      let msg = "Ocurrió un error al iniciar sesión.";
+      //
+      if(error.code == "auth/invalid-credential"){
+        msg = "Credenciales invalidas"
+      }else if(error.code == "auth/auth/wrong-password"){
+        msg = "Contraseña incorrecta";
+      }else if(error.code == "auth/invalid-email"){
+        msg = "Email no valido"
+      }
+
+      this.helper.showAlert(msg, "Error de ingreso");
+      //Para detener el loader
+      loader.dismiss();
     }
-    this.firebase.login(this.usuario, this.password);
+
+
     //Creación del archivo Json
     const jsonToken = [
       {
