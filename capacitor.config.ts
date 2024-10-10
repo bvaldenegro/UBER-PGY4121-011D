@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'Uber',
+  appId: 'cl.valdevergara.HyperLinkRide',
+  appName: 'Hyper LinkRide',
   webDir: 'www'
 };
 
