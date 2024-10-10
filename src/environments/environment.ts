@@ -11,7 +11,10 @@ export const environment = {
     storageBucket: "valdevergara.appspot.com",
     messagingSenderId: "623259229896",
     appId: "1:623259229896:web:2f25e32ed95c4f2f820ffd"
-  }
+  },
+
+  //Agregar la API
+  apiUrl:"https://uber-nodejs-server-git-d61f89-guillermovillacuratorres-projects.vercel.app/api/"
 };
 
 /*
