@@ -17,7 +17,15 @@
       <ion-list style="text-align: center;">
   
         <ion-item>
-          <ion-input [(ngModel)]="usuario" label="Usuario: " placeholder="Ingrese usuario"></ion-input>
+          <ion-input [(ngModel)]="correo" label="Correo: " placeholder="Ingrese usuario"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)]="nombre" label="Nombre: " placeholder="Ingrese usuario"></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-input [(ngModel)]="telefono" label="Telefono: " placeholder="Ingrese usuario"></ion-input>
         </ion-item>
       
         <ion-item>
@@ -27,6 +35,12 @@
         <ion-item>
           <ion-input [(ngModel)]="password2" label="Repita contraseña: " type="password" placeholder="repita la contraseña"></ion-input>
         </ion-item>
+
+        <ion-item>
+          <input type="file">
+        </ion-item>
+
+        <img src="assets/img/link.png" alt="">
       
         <ion-button (click)="signup()" color="medium"> Registrarse </ion-button>
       

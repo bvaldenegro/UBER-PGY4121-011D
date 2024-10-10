@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FirebaseService } from 'src/app/services/firebase.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-registro',
@@ -9,11 +10,13 @@ import { FirebaseService } from 'src/app/services/firebase.service';
 })
 export class RegistroPage implements OnInit {
 
-  usuario:string = "";
+  correo:string = "";
+  nombre:string ="";
+  telefono:string ="";
   password1:string = "";
   password2:string = "";
 
-  constructor(private router:Router, private firebase:FirebaseService) { }
+  constructor(private router:Router, private firebase:FirebaseService, private usuario:UsuarioService) { }
 
   ngOnInit() {
   }
@@ -35,7 +38,7 @@ export class RegistroPage implements OnInit {
       alert("Uno o más campos vacios")
     }*/
 
-    this.firebase.registro(this.usuario, this.password1);
+    this.firebase.registro(this.correo, this.password1);
 
   }
 
