@@ -17,15 +17,15 @@
       <ion-list style="text-align: center;">
   
         <ion-item>
-          <ion-input [(ngModel)]="correo" label="Correo: " placeholder="Ingrese usuario"></ion-input>
+          <ion-input [(ngModel)]="correo" label="Correo: " placeholder="Ingrese Correo"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-input [(ngModel)]="nombre" label="Nombre: " placeholder="Ingrese usuario"></ion-input>
+          <ion-input [(ngModel)]="nombre" label="Nombre: " placeholder="Ingrese Nombre o usuario"></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-input [(ngModel)]="telefono" label="Telefono: " placeholder="Ingrese usuario"></ion-input>
+          <ion-input [(ngModel)]="telefono" label="Telefono: " placeholder="Ingrese Telefono"></ion-input>
         </ion-item>
       
         <ion-item>
@@ -33,16 +33,16 @@
         </ion-item>
       
         <ion-item>
-          <ion-input [(ngModel)]="password2" label="Repita contraseña: " type="password" placeholder="repita la contraseña"></ion-input>
+          <ion-input [(ngModel)]="password2" label="Repita contraseña: " type="password" placeholder="Repita la contraseña"></ion-input>
         </ion-item>
 
         <ion-item>
           <input type="file">
         </ion-item>
 
-        <img src="assets/img/link.png" alt="">
+        <img style= "display: block; height: 150px; width: 100px;" src="assets/img/link.png" alt="">
       
-        <ion-button (click)="signup()" color="medium"> Registrarse </ion-button>
+        <ion-button (click)="registro()" color="medium"> Registrarse </ion-button>
       
       </ion-list>
     </ion-card-content>

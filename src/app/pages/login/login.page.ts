@@ -39,6 +39,7 @@ export class LoginPage implements OnInit {
       const loader = await this.helper.showLoader("Cargando...");
     try {
       await this.firebase.login(this.usuario, this.password);
+      this.router.navigateByUrl("/inicio/" + this.usuario);
       loader.dismiss();
       
     } catch (error:any) {
@@ -50,6 +51,8 @@ export class LoginPage implements OnInit {
         msg = "Contraseña incorrecta";
       }else if(error.code == "auth/invalid-email"){
         msg = "Email no valido"
+      }else if(error.code == "auth/user-not-found"){
+        msg = "El usuario no se encuentra registrado"
       }
 
       this.helper.showAlert(msg, "Error de ingreso");
@@ -70,8 +73,6 @@ export class LoginPage implements OnInit {
     this.storage.agregarToken(jsonToken);
     //Obtenemos la info que guardamos en storage
     console.log(await this.storage.obtenerStorage());
-
-    this.router.navigateByUrl("/inicio/" + this.usuario);
 
 
   }
