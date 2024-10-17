@@ -36,11 +36,15 @@
           <ion-input [(ngModel)]="password2" label="Repita contraseña: " type="password" placeholder="Repita la contraseña"></ion-input>
         </ion-item>
 
-        <ion-item>
+        <!-- <ion-item>
           <input type="file">
-        </ion-item>
+        </ion-item> 
 
-        <img style= "display: block; height: 150px; width: 100px;" src="assets/img/link.png" alt="">
+        <img style= "display: block; height: 150px; width: 100px;" src="assets/img/link.png" alt=""> -->
+
+        <img *ngIf="imagen" style="display: bloc; height: 150px; width: 100px;" [src]="imagen.src" alt="">
+
+        <ion-button (click)="takePhoto()"> Tomar Foto </ion-button>
       
         <ion-button (click)="registro()" color="medium"> Registrarse </ion-button>
       
