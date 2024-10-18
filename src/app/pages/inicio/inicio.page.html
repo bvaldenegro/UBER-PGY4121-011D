@@ -15,6 +15,20 @@
       <ion-item>
         <ion-label (click)="agregarVehiculo()">Agregar Vehiculo </ion-label>
       </ion-item>
+
+      <ion-card *ngFor="let i of viajes" (click)="seleccionarViaje(i.id_usuario)">
+        <!--<ion-img [src]="i.imagen_vehiculo"></ion-img> -->
+        <h3>Origen: {{i.ubicacion_origen}}</h3>
+        <h3>Destino: {{i.ubicacion_destino}}</h3>
+
+        <div class="vertical">
+          <ion-label>Patente: {{i.patente}}</ion-label>
+          <ion-label>Color: {{i.color}}</ion-label>
+          <ion-label>Marca: {{i.marca}}</ion-label>
+          <ion-label>Modelo: {{i.modelo}}</ion-label>
+        </div>
+      </ion-card>
+
       <ion-item>
         <ion-button (click)="logout()" id="cerrar-sesion" color="medium"> Cerrar Sesion </ion-button>
       </ion-item>

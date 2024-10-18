@@ -21,3 +21,19 @@
 #profile-menu-icon{
     font-size: 40px;
 }
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.box{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+ion-card{
+    padding: 20px;
+}

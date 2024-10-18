@@ -92,8 +92,14 @@ export class LoginPage implements OnInit {
     ]
 
     this.storage.agregarToken(jsonToken);
+
+    
     //Obtenemos la info que guardamos en storage
-    console.log(await this.storage.obtenerStorage());
+    let token = await this.storage.obtenerStorage();
+    console.log(token[0].usuario_correo);
+
+    await this.helper.showToast("Login correcto");
+    this.router.navigateByUrl("inicio");
 
 
   }
