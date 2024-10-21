@@ -68,10 +68,16 @@ export class RegistroPage implements OnInit {
         let msg = "Error al registrar usuario"
         if (error.code == "auth/email-already-in-use") {
           msg = "Este usuario ya ha sido registrado previamente"
+          loader.dismiss()
+          return this.ngOnInit()
         }else if(error.code == "auth/invalid-email"){
           msg = "Email no valido"
+          loader.dismiss()
+          return this.ngOnInit()
         }else if(error.code == "auth/weak-password"){
           msg = "La contraseña es demasiado debil"
+          loader.dismiss()
+          return this.ngOnInit()
         }
         this.helper.showAlert(msg, "Error de registro");
         loader.dismiss();

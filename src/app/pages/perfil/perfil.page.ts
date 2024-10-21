@@ -19,7 +19,7 @@ export class PerfilPage implements OnInit {
   }
 
   return(){
-    this.router.navigateByUrl("/inicio/" + this.usuario)
+    this.router.navigateByUrl("/inicio")
   }
 
 }

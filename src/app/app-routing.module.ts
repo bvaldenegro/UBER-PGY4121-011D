@@ -20,13 +20,13 @@ const routes: Routes = [
   },
   {
     //Se modifica la ruta de inicio para que pida un parametro llamado usuario.
-    path: 'inicio/:usuario',
+    path: 'inicio',
     //Forma de restringir el acceso
     canActivate:[AngularFireAuthGuard], data:{authGuardPipe:RedireccionarLogin},
     loadChildren: () => import('./pages/inicio/inicio.module').then( m => m.InicioPageModule)
   },
   {
-    path: 'perfil/:usuario',
+    path: 'perfil',
     //Forma de restringir el acceso
     canActivate:[AngularFireAuthGuard], data:{authGuardPipe:RedireccionarLogin},
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)

@@ -28,7 +28,7 @@ export class UsuarioService {
 
       formData.append('image_usuario', imgFileUSer.file, imgFileUSer.name)
 
-      const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'user/obtener', formData));
+      const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'user/agregar', formData));
       return response;
 
     } catch (error) {

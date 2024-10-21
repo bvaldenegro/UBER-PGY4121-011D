@@ -34,6 +34,7 @@ export class InicioPage implements OnInit {
       }
     );
     this.usuario = req.data;
+    console.log("Usuario cargado: ", this.usuario)
   }
 
 
@@ -70,7 +71,7 @@ export class InicioPage implements OnInit {
   }
 
   profile(){
-    this.router.navigateByUrl("/perfil/" + this.usuario);
+    this.router.navigateByUrl("/perfil");
   }
 
   agregarViaje(){

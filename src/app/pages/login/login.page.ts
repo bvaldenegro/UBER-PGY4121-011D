@@ -44,7 +44,7 @@ export class LoginPage implements OnInit {
       const loader = await this.helper.showLoader("Cargando...");
     try {
       const reqFireBase = await this.firebase.login(this.correo, this.password);
-      this.router.navigateByUrl("/inicio/" + this.correo);
+      this.router.navigateByUrl("/inicio");
       //solicitud get user
       const token = await reqFireBase.user?.getIdToken();
       if(token){
