@@ -11,7 +11,7 @@ export class VehiculoService {
   constructor(private http:HttpClient) { }
 
 
-  async agregarVehiculo(datosVehiculo:dataBodyVehiculo, imgFileUSer:any){
+  async agregarVehiculo(datosVehiculo:dataBodyVehiculo, imgFileVehiculo:any){
     try {
       
       const formData = new FormData();
@@ -24,7 +24,7 @@ export class VehiculoService {
       formData.append('p_color', datosVehiculo.p_color),
       formData.append('p_tipo_combustible', datosVehiculo.p_tipo_combustible)
       formData.append('token', datosVehiculo.token)
-      formData.append('imagen_vehiculo', imgFileUSer.file, imgFileUSer.name)
+      formData.append('image', imgFileVehiculo.file, imgFileVehiculo.name)
 
       const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'vehiculo/agregar', formData));
       return response;
@@ -35,10 +35,11 @@ export class VehiculoService {
     }
   }
 
-  async obtenerVehiculo(parToken:string){
+  async obtenerVehiculo(parToken:string, id_usuario:number){
     try {
       
       const params = {
+        p_id:id_usuario,
         token:parToken
       }
       const response = await lastValueFrom(this.http.get<any>(environment.apiUrl + "vehiculo/obtener", {params}))

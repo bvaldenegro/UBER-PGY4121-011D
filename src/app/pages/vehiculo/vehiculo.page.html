@@ -17,7 +17,7 @@
 
   <ion-grid>
     <ion-row>
-      <ion-col>
+      <ion-col *ngIf="loaded" >
         <!-- <form (ngSubmit)="agregarVehiculo()"> -->
           <ion-item>
             <ion-label position="floating">Marca</ion-label>
@@ -49,7 +49,9 @@
             <ion-input [(ngModel)]="tipo_combustible" name="tipo_combustible" required></ion-input>
           </ion-item>
 
-          <ion-button (click)="takePhoto()"> Tomar Foto </ion-button>
+          <img *ngIf="image" style="display: bloc; height: 150px; width: 100px;" [src]="image.src" alt="">
+
+          <ion-button [(ngModel)]="image" (click)="takePhoto()"> Tomar Foto </ion-button>
 
           <ion-button (click)="agregarVehiculo()" color="medium">Agregar Vehículo</ion-button>
         <!-- </form> -->

@@ -29,7 +29,8 @@ export class VehiculoPage implements OnInit {
   color:string = "";
   tipo_combustible:string = "";
   nombre_proyecto:string ="";
-  imagen: any = "";
+  image:any;
+  loaded:boolean = false;
   usuario:UserModel[] = [];
   vehiculo:VehiculoModel[] = [];
 
@@ -39,9 +40,11 @@ export class VehiculoPage implements OnInit {
 
   ngOnInit() {
     this.cargarUsuario();
-    this.cargarVehiculo()
+    setTimeout(() =>{
+      this.loaded = true;
+      this.cargarVehiculo();
+    },650)
   }
-
 
   async cargarUsuario(){
     let dataStorage = await this.storage.obtenerStorage();
@@ -70,8 +73,7 @@ export class VehiculoPage implements OnInit {
     const loader = await this.helper.showLoader('Cargando...')
     const token = dataStorage[0].token
     try {
-      if(token){
-        let usuario = this.cargarUsuario()
+      if(token){  
         const req = await this.vehiculoService.agregarVehiculo(
           {
             p_id_usuario:this.usuario[0].id_usuario,
@@ -83,9 +85,9 @@ export class VehiculoPage implements OnInit {
             p_tipo_combustible: this.tipo_combustible,
             p_nombre_proyecto: 'valdevergara',
             token:token
-          }, this.imagen
+          }, this.image
         )
-        console.log('Ya po papito xd')
+        console.log('No')
       }
       await this.helper.showAlert("vehiculo creado exitosamente", "Informacion");
       await loader.dismiss();
@@ -95,16 +97,14 @@ export class VehiculoPage implements OnInit {
       console.log('Error po weon')
       throw error
     }
-    
-
-
   }
-
 
   async cargarVehiculo(){
     let dataStorage = await this.storage.obtenerStorage();
 
-    const req = await this.vehiculoService.obtenerVehiculo(dataStorage[0].token)
+    console.log("Usuario id: ", this.usuario[0].id_usuario)
+
+    const req = await this.vehiculoService.obtenerVehiculo(dataStorage[0].token, this.usuario[0].id_usuario)
     this.vehiculo = req.data;
   }
 
@@ -118,13 +118,13 @@ export class VehiculoPage implements OnInit {
       const response = await fetch(image.webPath);
       const blob = await response.blob();
 
-      this.imagen = {
+      this.image = {
         fname: 'foto' + image.format,
         src: image.webPath,
         file : blob
       }
       var imageUrl = image.webPath;
-      this.imagen.src = imageUrl;
+      this.image.src = imageUrl;
     }
   }
 

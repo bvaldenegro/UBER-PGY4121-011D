@@ -16,6 +16,8 @@ export class InicioPage implements OnInit {
 
   //Creamos la variable usuario (la misma que le pasaremos por la URL)
   correo:string = "";
+  nombre:string = "";
+  imagen_usuario: string = "";
   usuario:UserModel[]=[];
   viajes:any[]=[];
   //Agregamos el parametro activateRoute en el constructor
@@ -34,6 +36,9 @@ export class InicioPage implements OnInit {
       }
     );
     this.usuario = req.data;
+    //Dado a que, por tener varios vehiculos automaticamente se vincula a un usuario, lo que provoca que el usuario se duplique, utilizaremos valores más estáticos.
+    this.nombre = this.usuario[0].nombre;
+    this.imagen_usuario = this.usuario[0].imagen_usuario;
     console.log("Usuario cargado: ", this.usuario)
   }
 

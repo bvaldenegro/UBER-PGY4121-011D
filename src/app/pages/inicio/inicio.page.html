@@ -7,7 +7,7 @@
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding">
-    <h1 (click)="profile()" *ngFor="let u of usuario"><img style="height: 60px; width: 60px; border-radius: 50%;"[src]="u.imagen_usuario"><img> {{u.nombre}} </h1>
+    <h1 (click)="profile()"><img style="height: 60px; width: 60px; border-radius: 50%;"src={{imagen_usuario}}><img> {{nombre}} </h1>
     <ion-list>
       <ion-item>
         <ion-label (click)="agregarViaje()">Agregar Viaje</ion-label>
@@ -51,8 +51,8 @@
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
-    <div class="inicio" *ngFor="let u of usuario">
-      <h1 id="bienvenido">Bienvenido {{u.nombre}}</h1>
+    <div class="inicio">
+      <h1 id="bienvenido">Bienvenido {{nombre}}</h1>
       <ion-list>
         <ion-item (click)="agregarViaje()" style="margin: 20px;">
           <ion-icon name="airplane-outline" class="list-icon"></ion-icon>

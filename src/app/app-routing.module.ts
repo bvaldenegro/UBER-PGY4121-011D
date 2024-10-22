@@ -55,6 +55,12 @@ const routes: Routes = [
     path: '**',
     loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
   },
+  {
+    path: 'listar-vehiculos',
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe:RedireccionarLogin},
+    loadChildren: () => import('./pages/listar-vehiculos/listar-vehiculos.module').then( m => m.ListarVehiculosPageModule)
+  },
+
   
 
 
