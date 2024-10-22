@@ -87,6 +87,10 @@ export class InicioPage implements OnInit {
     this.router.navigateByUrl("/vehiculo");
   }
 
+  listarVehiculos(){
+    this.router.navigateByUrl("/vehiculos");
+  }
+
   handleRefresh(event: any) {
     setTimeout(() => {
       // Aquí puedes añadir llamadas para cargar datos u otras acciones necesarias

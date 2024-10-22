@@ -52,17 +52,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/reset-password/reset-password.module').then( m => m.ResetPasswordPageModule)
   },
   {
-    path: '**',
-    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
+    path: 'vehiculos',
+    loadChildren: () => import('./pages/vehiculos/vehiculos.module').then( m => m.VehiculosPageModule)
   },
   {
-    path: 'listar-vehiculos',
-    canActivate:[AngularFireAuthGuard], data:{authGuardPipe:RedireccionarLogin},
-    loadChildren: () => import('./pages/listar-vehiculos/listar-vehiculos.module').then( m => m.ListarVehiculosPageModule)
-  },
-
-  
-
+    path: '**',
+    loadChildren: () => import('./pages/error404/error404.module').then( m => m.Error404PageModule)
+  }
 
 ];
 

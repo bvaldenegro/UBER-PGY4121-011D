@@ -1,0 +1,22 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>Vehiculos</ion-title>
+    <ion-icon [routerLink]="['/inicio']" name="arrow-back-outline" class="back-button"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Lista de Vehiculos</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-card *ngFor="let v of vehiculo">
+    <div class="vertical">
+      <ion-label>Marca Vehiculo: {{v.marca}}</ion-label> <br>
+      <ion-label>Modelo Vehiculo: {{v.modelo}}</ion-label> <br>
+      <ion-label>Patente Vehiculo: {{v.patente}}</ion-label> <br>
+      <h1><img src={{v.imagen_vehiculo}} alt=""></h1>
+    </div>
+  </ion-card>
+</ion-content>
