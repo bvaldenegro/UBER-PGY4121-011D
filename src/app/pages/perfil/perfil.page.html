@@ -7,10 +7,12 @@
       <ion-title id="title">Perfil</ion-title>
     </ion-toolbar>
   </ion-header>
-    <div class="ion-container">
+    <div class="ion-container" *ngFor="let u of usuario">
       <ion-content [fullscreen]="true">
-        <h1><ion-icon name="person-outline" id="profile"></ion-icon></h1>
-        <h1 id="user">{{usuario}}</h1>
+        <h1><img [src]="u.imagen_usuario" id="profile"><img></h1>
+        <h1 id="user">{{u.nombre}}</h1>
+        <h2>{{u.telefono}}</h2>
+        <h2>{{u.correo_electronico}}</h2>
       </ion-content>
     </div>
   </div>
