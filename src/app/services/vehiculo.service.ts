@@ -22,8 +22,8 @@ export class VehiculoService {
       formData.append('p_modelo', datosVehiculo.p_modelo),
       formData.append('p_anio', datosVehiculo.p_anio.toString()),
       formData.append('p_color', datosVehiculo.p_color),
-      formData.append('p_tipo_combustible', datosVehiculo.p_tipo_combustible)
-      formData.append('token', datosVehiculo.token)
+      formData.append('p_tipo_combustible', datosVehiculo.p_tipo_combustible),
+      formData.append('token', datosVehiculo.token),
       formData.append('image', imgFileVehiculo.file, imgFileVehiculo.name)
 
       const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'vehiculo/agregar', formData));

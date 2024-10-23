@@ -87,7 +87,7 @@ export class VehiculoPage implements OnInit {
             token:token
           }, this.image
         )
-        console.log('No')
+        console.log('Listo pa')
       }
       await this.helper.showAlert("vehiculo creado exitosamente", "Informacion");
       await loader.dismiss();
