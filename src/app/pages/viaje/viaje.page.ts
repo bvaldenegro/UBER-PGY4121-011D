@@ -30,6 +30,7 @@ export class ViajePage implements OnInit {
   costo:number = 0;
   usuario:UserModel[] = [];
   viajes:any[] = [];
+  vehiculoSeleccionado:string = "";
 
   constructor(private helper:HelperService, private storage:StorageService, private usuarioService:UsuarioService,
               private viajeService:ViajeService
@@ -53,6 +54,17 @@ export class ViajePage implements OnInit {
     console.log("Usuario cargado: ", this.usuario)
   }
 
+  compareWith(o1:any, o2:any) {
+    return o1 && o2 ? o1.id === o2.id : o1 === o2;
+  }
+
+  handleChange(ev:any) {
+    //console.log('Current value:', JSON.stringify(ev.target.value));
+    this.vehiculoSeleccionado = ev.target.value.id_vehiculo
+    //console.log("Id vehiculo seleccionado: ", this.vehiculoSeleccionado)
+    return this.vehiculoSeleccionado;
+  }
+
   // Método para agregar un viaje
   async agregarViaje() {
     // Verificar que todos los campos estén completos
@@ -70,18 +82,20 @@ export class ViajePage implements OnInit {
       const token = dataStorage[0].token
       try {
         if(token){
+          console.log("Id seleccionado: ", this.vehiculoSeleccionado);
           const req = await this.viajeService.agregarViaje(
             {
               p_id_usuario:this.usuario[0].id_usuario,
               p_ubicacion_origen:this.ubicacion_origen,
               p_ubicacion_destino:this.ubicacion_destino,
               p_costo:this.costo,
-              p_id_vehiculo:this.usuario[0].id_vehiculo,
+              p_id_vehiculo:parseInt(this.vehiculoSeleccionado),
               token:token
             }
           )
+          
         }
-        await this.helper.showAlert("vehiculo creado exitosamente", "Informacion");
+        await this.helper.showAlert("Viaje creado exitosamente", "Informacion");
         await loader.dismiss();
       } catch (error) {
         await loader.dismiss();

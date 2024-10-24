@@ -14,24 +14,22 @@ export class ViajeService {
 
     try {
       
-      const formData = new FormData();
+      const body = {
+        p_id_usuario: datosViaje.p_id_usuario,
+        p_ubicacion_origen: datosViaje.p_ubicacion_origen,
+        p_ubicacion_destino: datosViaje.p_ubicacion_destino,
+        p_costo: datosViaje.p_costo,
+        p_id_vehiculo: datosViaje.p_id_vehiculo,
+        token: datosViaje.token
+      };
 
-      formData.append('p_id_usuario', datosViaje.p_id_usuario.toString()),
-      formData.append('p_ubicacion_origen', datosViaje.p_ubicacion_origen),
-      formData.append('p_ubicacion_destino', datosViaje.p_ubicacion_destino),
-      formData.append('p_costo', datosViaje.p_costo.toString()),
-      formData.append('p_id_vehiculo', datosViaje.p_id_vehiculo.toString()),
-      formData.append('token', datosViaje.token)
-
-      const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'viaje/agregar', formData));
+      const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'viaje/agregar', body));
       return response;
 
     } catch (error) {
       console.log(error)
       throw error
     }
-    
-
   }
 
 
