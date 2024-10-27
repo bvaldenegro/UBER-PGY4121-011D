@@ -9,6 +9,8 @@ import { ViajeService } from 'src/app/services/viaje.service';
 import type { QueryList } from '@angular/core';
 import type { Animation } from '@ionic/angular';
 import { AnimationController, IonCard } from '@ionic/angular';
+import { NavController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-inicio',
@@ -29,7 +31,7 @@ export class InicioPage implements OnInit {
   loaded:boolean = false;
   private animation!: Animation;
   //Agregamos el parametro activateRoute en el constructor
-  constructor(private activateRoute: ActivatedRoute, private router:Router, private firebase:FirebaseService,
+  constructor(private navCtrl: NavController,private activateRoute: ActivatedRoute, private router:Router, private firebase:FirebaseService,
               private usuarioService:UsuarioService, private storage:StorageService, private viajeService:ViajeService,
               private helper:HelperService, private animationCtrl: AnimationController
   ) { }
@@ -186,6 +188,10 @@ export class InicioPage implements OnInit {
       // Aquí puedes añadir llamadas para cargar datos u otras acciones necesarias
       event.target.complete(); // Completa el refresco para detener el spinner
     }, 2000);
+  }
+
+  abrirMapa() {
+    this.navCtrl.navigateForward('/mapa');
   }
 }
 
