@@ -46,7 +46,7 @@
     </ion-refresher>
     <div class="inicio">
       <h1 id="bienvenido">Bienvenido {{nombre}}</h1>
-      <ion-list>
+      <ion-list style="margin: 10px;">
         <ion-item (click)="listarVehiculos()" style="margin: 20px">
           <ion-icon name="car-outline" class="list-icon"></ion-icon>
           <ion-label class="list-text">Mostrar Vehiculos</ion-label>
@@ -71,7 +71,7 @@
             </div>
           </ion-card>
 
-          <div *ngIf="i.id_estado == 2">
+          <div style="margin: 5px;" *ngIf="i.id_estado == 2">
             <h1 style="text-align: center;">Viaje en ruta</h1>
             <ion-item *ngIf="i.id_estado == 2">
               <ion-card>
@@ -79,6 +79,10 @@
                   <h1>Destinos del viaje</h1>
                   <ion-label>Origen: {{i.ubicacion_origen}}</ion-label>
                   <ion-label>Destino: {{i.ubicacion_destino}}</ion-label>
+                  <ion-label>Viaje en ruta</ion-label>
+                  <ion-button (click)="cancelarViaje(i.id_viaje)" expand="block" fill="clear" shape="round">
+                    Cancelar
+                  </ion-button>
                   <ion-button (click)="finalizarViaje(i.id_viaje)" expand="block" fill="clear" shape="round">
                     Finalizar
                   </ion-button>

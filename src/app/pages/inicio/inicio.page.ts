@@ -120,10 +120,12 @@ export class InicioPage implements OnInit {
   async finalizarViaje(parId: number){
     console.log("Viaje Seleccionado ", parId)
     let dataStorage = await this.storage.obtenerStorage();
-    try {
+    let confirmacion = await this.helper.showConfirm("Finalizar viaje")
+    if(confirmacion){
+      try {
         const req = await this.viajeService.actualizarEstado(
           {
-            p_id_estado: 1,
+            p_id_estado: 3,
             p_id: parId,
             token: dataStorage[0].token
           }
@@ -132,9 +134,34 @@ export class InicioPage implements OnInit {
         this.viajeService.obtenerViaje(dataStorage[0].token);
         this.cargarViajes();
 
-    } catch (error) {
-      this.helper.showAlert("Ocurrió un error al finalizar el viaje", "Error")
-      throw error
+      } catch (error) {
+        this.helper.showAlert("Ocurrió un error al finalizar el viaje", "Error")
+        throw error
+      }
+    }
+  }
+
+  async cancelarViaje(parId: number){
+    console.log("Viaje Seleccionado ", parId)
+    let dataStorage = await this.storage.obtenerStorage();
+    let confirmacion = await this.helper.showConfirm("Cancelar viaje")
+    if(confirmacion){
+      try {
+        const req = await this.viajeService.actualizarEstado(
+          {
+            p_id_estado: 1,
+            p_id: parId,
+            token: dataStorage[0].token
+          }
+        )
+        this.helper.showAlert("Viaje cancelado con éxito", 'Informacion')
+        this.viajeService.obtenerViaje(dataStorage[0].token);
+        this.cargarViajes();
+
+      } catch (error) {
+        this.helper.showAlert("Ocurrió un error al cancelar el viaje", "Error")
+        throw error
+      }
     }
   }
 
