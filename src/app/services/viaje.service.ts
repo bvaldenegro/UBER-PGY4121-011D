@@ -48,9 +48,9 @@ export class ViajeService {
   async actualizarEstado(estadoViaje:datosEstadoViaje){
     try {
       const body = {
-        'p_id_estado': 2,
-        'p_id': 6,
-        'p_token': estadoViaje.token
+        p_id_estado: estadoViaje.p_id_estado,
+        p_id: estadoViaje.p_id,
+        token: estadoViaje.token
       }
       console.log("Body: ", body)
       const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'viaje/actualiza_estado_viaje', body))

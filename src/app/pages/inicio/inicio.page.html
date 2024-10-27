@@ -15,18 +15,16 @@
       <ion-item>
         <ion-label (click)="agregarVehiculo()">Agregar Vehiculo </ion-label>
       </ion-item>
-      <div *ngFor="let i of viajes">
-        <ion-item *ngIf="i.id == 2">
+      <!-- <div *ngFor="let i of viajes">
           <h3>En ruta</h3>
           <ion-label>Origen: {{i.ubicacion_origen}}</ion-label>
           <ion-label>Destino: {{i.ubicacion_destino}}</ion-label>
-        </ion-item>
 
-      </div>
+      </div> -->
 
-      <ion-card *ngFor="let i of viajes" (click)="seleccionarViaje(i.id)">
+      <ion-card *ngFor="let i of viajes" (click)="seleccionarViaje(i.id_viaje)">
         <!--<ion-img [src]="i.imagen_vehiculo"></ion-img> -->
-        <h3>id: {{i.id}}</h3>
+        <h3>id: {{i.id_viaje}}</h3>
         <h3>Origen: {{i.ubicacion_origen}}</h3>
         <h3>Destino: {{i.ubicacion_destino}}</h3>
 
@@ -71,6 +69,12 @@
           <ion-icon name="car-outline" class="list-icon"></ion-icon>
           <ion-label class="list-text">Mostrar Vehiculos</ion-label>
         </ion-item>
+        <div *ngFor="let v of viajes">
+          <ion-item *ngIf="v.id_estado == 2">
+            <ion-label>Origen: {{v.ubicacion_origen}}</ion-label>
+            <ion-label>Destino: {{v.ubicacion_destino}}</ion-label>
+          </ion-item>
+        </div>
       </ion-list>
     </div>
   </ion-content>

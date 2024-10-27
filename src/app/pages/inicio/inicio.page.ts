@@ -47,7 +47,6 @@ export class InicioPage implements OnInit {
     console.log("Viaje Seleccionado ", parId)
     let dataStorage = await this.storage.obtenerStorage();
     try {
-      if(dataStorage[0].token){
         const req = await this.viajeService.actualizarEstado(
           {
             p_id_estado: 2,
@@ -56,7 +55,7 @@ export class InicioPage implements OnInit {
           }
         )
         this.helper.showAlert("Si se pudo burro", 'Informacion')
-      }
+      
     } catch (error) {
       this.helper.showAlert("Error en seleccionar viajes pa", "Error")
       throw error
