@@ -6,7 +6,7 @@
       <ion-title>Menu</ion-title>
     </ion-toolbar>
   </ion-header>
-  <ion-content class="ion-padding">
+  <ion-content class="ion-padding" *ngIf="loaded">
     <h1 (click)="profile()"><img style="height: 60px; width: 60px; border-radius: 50%;"src={{imagen_usuario}}><img> {{nombre}} </h1>
     <ion-list>
       <ion-item>
@@ -22,20 +22,6 @@
 
       </div> -->
 
-      <ion-card *ngFor="let i of viajes" (click)="seleccionarViaje(i.id_viaje)">
-        <!--<ion-img [src]="i.imagen_vehiculo"></ion-img> -->
-        <h3>id: {{i.id_viaje}}</h3>
-        <h3>Origen: {{i.ubicacion_origen}}</h3>
-        <h3>Destino: {{i.ubicacion_destino}}</h3>
-
-        <div class="vertical">
-          <ion-label>Patente: {{i.patente}}</ion-label>
-          <ion-label>Color: {{i.color}}</ion-label>
-          <ion-label>Marca: {{i.marca}}</ion-label>
-          <ion-label>Modelo: {{i.modelo}}</ion-label>
-        </div>
-      </ion-card>
-
       <ion-item>
         <ion-button (click)="logout()" id="cerrar-sesion" color="medium"> Cerrar Sesion </ion-button>
       </ion-item>
@@ -47,37 +33,84 @@
 <div class="ion-page" id="main-content">
   <ion-header>
     <ion-toolbar>
-      <ion-buttons slot="start">
+      <ion-buttons>
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
       <ion-title>Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content>
+  <ion-content slot="start">
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
       <ion-refresher-content></ion-refresher-content>
     </ion-refresher>
     <div class="inicio">
       <h1 id="bienvenido">Bienvenido {{nombre}}</h1>
       <ion-list>
-        <ion-item (click)="agregarViaje()" style="margin: 20px;">
-          <ion-icon name="airplane-outline" class="list-icon"></ion-icon>
-          <ion-label class="list-text">Viaje</ion-label>
-        </ion-item>
         <ion-item (click)="listarVehiculos()" style="margin: 20px">
           <ion-icon name="car-outline" class="list-icon"></ion-icon>
           <ion-label class="list-text">Mostrar Vehiculos</ion-label>
         </ion-item>
-        <div *ngFor="let v of viajes">
-          <ion-item *ngIf="v.id_estado == 2">
-            <ion-label>Origen: {{v.ubicacion_origen}}</ion-label>
-            <ion-label>Destino: {{v.ubicacion_destino}}</ion-label>
-          </ion-item>
+
+
+        <div *ngFor="let i of viajes">
+          <h1 *ngIf="i.id_estado == 1" style="text-align: center;">Viaje Disponible</h1>
+          <ion-card (click)="seleccionarViaje(i.id_viaje)">
+            <!--<ion-img [src]="i.imagen_vehiculo"></ion-img> -->
+            <h1>Detalles del viaje</h1>
+            <h3>Origen: {{i.ubicacion_origen}}</h3>
+            <h3>Destino: {{i.ubicacion_destino}}</h3>
+    
+            <div class="vertical">
+              <ion-label>Patente: {{i.patente}}</ion-label>
+              <ion-label>Color: {{i.color}}</ion-label>
+              <ion-label>Marca: {{i.marca}}</ion-label>
+              <ion-label>Modelo: {{i.modelo}}</ion-label>
+            </div>
+          </ion-card>
+
+          <div *ngIf="i.id_estado == 2">
+            <h1 style="text-align: center;">Viaje en ruta</h1>
+            <ion-item *ngIf="i.id_estado == 2">
+              <ion-card>
+                <ion-card-content>
+                  <h1>Destinos del viaje</h1>
+                  <ion-label>Origen: {{i.ubicacion_origen}}</ion-label>
+                  <ion-label>Destino: {{i.ubicacion_destino}}</ion-label>
+                  <ion-button (click)="finalizarViaje(i.id_viaje)" expand="block" fill="clear" shape="round">
+                    Finalizar
+                  </ion-button>
+                </ion-card-content>
+              </ion-card>
+            </ion-item>
+          </div>
         </div>
+        
       </ion-list>
     </div>
   </ion-content>
 </div>
+
+<ion-list *ngIf="!loaded">
+  <ion-list-header>
+    <ion-skeleton-text [animated]="true" style="width: 80px"></ion-skeleton-text>
+  </ion-list-header>
+  <ion-item>
+    <ion-thumbnail slot="start">
+      <ion-skeleton-text [animated]="true"></ion-skeleton-text>
+    </ion-thumbnail>
+    <ion-label>
+      <h3>
+        <ion-skeleton-text [animated]="true" style="width: 80%;"></ion-skeleton-text>
+      </h3>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 60%;"></ion-skeleton-text>
+      </p>
+      <p>
+        <ion-skeleton-text [animated]="true" style="width: 30%;"></ion-skeleton-text>
+      </p>
+    </ion-label>
+  </ion-item>
+</ion-list>
 
 </div>

@@ -45,6 +45,19 @@ export class ViajeService {
     }
   }
 
+  async obtenerViajeRuta(id_viaje:number, parToken: string){
+    try {
+      const params = {
+        p_id: id_viaje,
+        token: parToken
+      }
+      const response = await lastValueFrom(this.http.get<any>(environment.apiUrl + 'viaje/obtener', {params}))
+      return response;
+    } catch (error) {
+      throw(error);
+    }
+  }
+
   async actualizarEstado(estadoViaje:datosEstadoViaje){
     try {
       const body = {
@@ -52,7 +65,6 @@ export class ViajeService {
         p_id: estadoViaje.p_id,
         token: estadoViaje.token
       }
-      console.log("Body: ", body)
       const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'viaje/actualiza_estado_viaje', body))
       return response;
     } catch (error) {

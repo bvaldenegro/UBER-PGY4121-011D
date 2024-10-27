@@ -44,7 +44,6 @@ export class LoginPage implements OnInit {
       const loader = await this.helper.showLoader("Cargando...");
     try {
       const reqFireBase = await this.firebase.login(this.correo, this.password);
-      this.router.navigateByUrl("/inicio");
       //solicitud get user
       const token = await reqFireBase.user?.getIdToken();
       if(token){
@@ -56,9 +55,9 @@ export class LoginPage implements OnInit {
         );
         this.usuario = req.data;
         //Acceder a los modelos
-        this.usuario[0].id_usuario;
+        //this.usuario[0].id_usuario;
       }
-      
+      this.router.navigateByUrl("/inicio");
       loader.dismiss();
       
     } catch (error:any) {

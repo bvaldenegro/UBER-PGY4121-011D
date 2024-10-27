@@ -27,7 +27,7 @@ export class VehiculosPage implements OnInit {
       this.loaded = true;
       this.cargarVehiculo();
       loader.dismiss();
-    },1000); 
+    },1500); 
   }
 
   async cargarUsuario(){
