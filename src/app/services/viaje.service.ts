@@ -44,6 +44,21 @@ export class ViajeService {
       throw(error);
     }
   }
+
+  async actualizarEstado(estadoViaje:datosEstadoViaje){
+    try {
+      const body = {
+        'p_id_estado': 2,
+        'p_id': 6,
+        'p_token': estadoViaje.token
+      }
+      console.log("Body: ", body)
+      const response = await lastValueFrom(this.http.post<any>(environment.apiUrl + 'viaje/actualiza_estado_viaje', body))
+      return response;
+    } catch (error) {
+      throw error;
+    }
+  }
 }
 
 interface datosBodyViaje{
@@ -52,5 +67,11 @@ interface datosBodyViaje{
   p_ubicacion_destino:string,
   p_costo:number,
   p_id_vehiculo:number,
+  token:string
+}
+
+interface datosEstadoViaje{
+  p_id_estado:number,
+  p_id:number,
   token:string
 }

@@ -106,7 +106,6 @@ export class ViajePage implements OnInit {
 
   async cargarViaje(){
     let dataStorage = await this.storage.obtenerStorage();
-    const token = dataStorage[0].token
 
     const req = await this.viajeService.obtenerViaje(dataStorage[0].token)
     this.viajes = req.data;

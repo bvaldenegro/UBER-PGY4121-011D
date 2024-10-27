@@ -43,8 +43,24 @@ export class InicioPage implements OnInit {
   }
 
 
-  seleccionarViaje(parId:number){
+  async seleccionarViaje(parId:number){
     console.log("Viaje Seleccionado ", parId)
+    let dataStorage = await this.storage.obtenerStorage();
+    try {
+      if(dataStorage[0].token){
+        const req = await this.viajeService.actualizarEstado(
+          {
+            p_id_estado: 2,
+            p_id: parId,
+            token: dataStorage[0].token
+          }
+        )
+        this.helper.showAlert("Si se pudo burro", 'Informacion')
+      }
+    } catch (error) {
+      this.helper.showAlert("Error en seleccionar viajes pa", "Error")
+      throw error
+    }
   }
 
 
@@ -53,6 +69,7 @@ export class InicioPage implements OnInit {
 
     const req = await this.viajeService.obtenerViaje(dataStorage[0].token)
     this.viajes = req.data;
+    console.log("Viajes cargados: ", this.viajes)
   }
 
 
