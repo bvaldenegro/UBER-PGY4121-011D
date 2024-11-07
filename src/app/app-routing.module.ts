@@ -57,6 +57,7 @@ const routes: Routes = [
   },
   {
     path: 'mapa',
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe:RedireccionarLogin},
     loadChildren: () => import('./pages/mapa/mapa.module').then( m => m.MapaPageModule)
   },
   {
