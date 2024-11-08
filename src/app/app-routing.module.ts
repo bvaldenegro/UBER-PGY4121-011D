@@ -53,6 +53,7 @@ const routes: Routes = [
   },
   {
     path: 'vehiculos',
+    canActivate:[AngularFireAuthGuard], data:{authGuardPipe:RedireccionarLogin},
     loadChildren: () => import('./pages/vehiculos/vehiculos.module').then( m => m.VehiculosPageModule)
   },
   {
