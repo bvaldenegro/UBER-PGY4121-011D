@@ -32,8 +32,8 @@ describe('PerfilPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('tiene perfil'), () => {
+  it('tiene perfil', () => {
     component.usuario = [];
     expect(component.usuario).toBeDefined();
-  }
+  });
 });
