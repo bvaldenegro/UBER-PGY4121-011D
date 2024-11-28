@@ -4,11 +4,26 @@
 }
 
 #profile{
-    font-size: 100px;
+    justify-self: center;
+    display: block;
+    height: 200px; 
+    width: 200px; 
+    border-radius: 50%;
 }
 
-#user{
-    font-size: 40px;
+#i-cuenta{
+    text-align: center;
+    font-size: 45px;
+}
+
+#i-basico{
+    text-align: center;
+    font: 35px;
+}
+
+ion-item{
+    text-align: start;
+    font-size: 20px;
 }
 
 #title{

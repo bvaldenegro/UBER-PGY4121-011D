@@ -11,7 +11,7 @@
   <ion-content [fullscreen]="true">
     <ion-card class="ion-border-card">
       <ion-card-header>
-        <ion-card-title style="justify-content: center;">Iniciar Sesion</ion-card-title>
+        <ion-card-title class="card-title">Iniciar Sesión</ion-card-title>
       </ion-card-header>
       <ion-card-content>
         <ion-list>  
@@ -24,8 +24,8 @@
             <ion-input [(ngModel)]="password" label="Contraseña: " type="password" value="password"></ion-input>
           </ion-item>
         </ion-list>
-        <ion-button (click)="login()" style="display: flexbox; margin-right: 30px; margin-top: 15px; color: white ;" color="medium"> Iniciar Sesion </ion-button>
-        <ion-button [routerLink]="['/registro']" style="display: flexbox; margin-left: 30px; margin-top: 15px; color: white ;" color="medium"> Registrarse </ion-button>
+        <ion-button (click)="login()" style="display: flexbox; margin-right: 30px; margin-top: 15px; color: white ;" color="medium"> Iniciar Sesión </ion-button>
+        <ion-button [routerLink]="['/registro']" style="display: flexbox; margin-left: 65px; margin-top: 15px; color: white ;" color="medium"> Registrarse </ion-button>
         <ion-button (click)="resetPw()" expand="block" fill="clear" shape="round"> Recuperar Contraseña</ion-button>
       </ion-card-content>
     </ion-card>

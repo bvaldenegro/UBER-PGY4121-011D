@@ -42,11 +42,14 @@ export class InicioPage implements OnInit {
     const loader = await this.helper.showLoader('Cargando...')
     setTimeout(() =>{
       this.cargarUsuario();
-      this.cargarViajes();
       this.loaded = true;
       loader.dismiss();
     },1000)
     
+  }
+
+  async ionViewWillEnter() {
+    this.cargarViajes();
   }
 
   async cargarUsuario(){
@@ -172,6 +175,7 @@ export class InicioPage implements OnInit {
     const req = await this.viajeService.obtenerViaje(dataStorage[0].token)
     this.viajes = req.data;
     console.log("Viajes cargados: ", this.viajes)
+    
   }
 
   async cargarViajesRuta(parId: number){

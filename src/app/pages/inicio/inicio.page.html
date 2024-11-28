@@ -2,12 +2,12 @@
 
 
   <ion-header>
-    <ion-toolbar>
-      <ion-title>Menu</ion-title>
+    <ion-toolbar style="display: inline-block;">
+      <ion-title style="justify-self: center;">Menu</ion-title>
     </ion-toolbar>
   </ion-header>
   <ion-content class="ion-padding" *ngIf="loaded">
-    <h1 (click)="profile()"><img style="height: 60px; width: 60px; border-radius: 50%;"src={{imagen_usuario}}><img> {{nombre}} </h1>
+    <h1 class="profile" (click)="profile()"><img class= "profile-icon"src={{imagen_usuario}}><img> {{nombre}} </h1>
     <ion-list>
       <ion-item>
         <ion-label (click)="agregarViaje()">Agregar Viaje</ion-label>
@@ -36,7 +36,7 @@
       <ion-buttons>
         <ion-menu-button></ion-menu-button>
       </ion-buttons>
-      <ion-title>Inicio</ion-title>
+      <ion-title style="text-align: center;">Inicio</ion-title>
     </ion-toolbar>
   </ion-header>
 
@@ -55,7 +55,7 @@
           <ion-icon name="map-outline" class="list-icon"></ion-icon>
           <ion-label class="list-text">Geolocalización</ion-label>
         </ion-item>
-        <div *ngFor="let i of viajes">
+        <div *ngFor="let i of viajes" style="justify-self: center; display: block;">
           <h1 *ngIf="i.id_estado == 1" style="text-align: center;">Viaje Disponible</h1>
           <ion-card (click)="seleccionarViaje(i.id_viaje)">
             <!--<ion-img [src]="i.imagen_vehiculo"></ion-img> -->
@@ -76,7 +76,7 @@
             <ion-item *ngIf="i.id_estado == 2">
               <ion-card>
                 <ion-card-content>
-                  <h1>Destinos del viaje</h1>
+                  <h1>Detalles del viaje</h1>
                   <ion-label>Origen: {{i.ubicacion_origen}}</ion-label>
                   <ion-label>Destino: {{i.ubicacion_destino}}</ion-label>
                   <ion-label>Viaje en ruta</ion-label>

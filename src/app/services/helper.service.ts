@@ -41,7 +41,7 @@ export class HelperService {
     const toast = await this.toastController.create({
       message:msg, 
       duration: 3000,
-      icon:'logo-whatsapp'
+      icon:"checkmark-circle-outline"
     })
     await toast.present();
   }
