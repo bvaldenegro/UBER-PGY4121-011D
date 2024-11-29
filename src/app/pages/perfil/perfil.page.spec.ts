@@ -32,8 +32,9 @@ describe('PerfilPage', () => {
     expect(component).toBeTruthy();
   });
 
-  it('tiene perfil', () => {
-    component.usuario = [];
+  it('Perfil de usuario definido', () => {
+    component.cargarUsuario();
     expect(component.usuario).toBeDefined();
   });
+  
 });
